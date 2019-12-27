@@ -4,7 +4,7 @@ import json
 import os.path
 import time
 
-bot = commands.Bot(command_prefix='hr.')
+bot = commands.Bot(command_prefix=':')
 
 
 async def createProfile(ctx):
@@ -146,4 +146,4 @@ async def weekly(ctx):
     else:
         await ctx.send("you cant do that yet")
 
-bot.run('')
+bot.run('NjU3MTQxNjAwMTgyNDY4NjA4.XgXGxA.SqPpTv93g8nI7nHa-qdrCo81DUE')
