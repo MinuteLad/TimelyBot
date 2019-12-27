@@ -16,11 +16,11 @@ async def createProfile(ctx):
         "Minutes": 0,
         "Hours": 0,
         "Cookies": 0,
-        "LastRedeemedDaily": 9999999999999,
-        "LastRedeemedWeekly": 99999999999999,
-        "LastRedeemedMonthly": 9999999999999
+        "LastRedeemedDaily": 99999999999999,
+        "LastRedeemedWeekly": 999999999999999,
+        "LastRedeemedMonthly": 99999999999999
     }
-    with open("profiles/" + str(ctx.author.id) + ".json", "w") as file:
+    with open("profiles/" + str(ctx.author.id) + ".json", "w") as f:
         json.dump(profile, file, indent=4)
 
 
@@ -41,7 +41,7 @@ async def giveCurrency(ctx, time: 0, seconds: 0, minutes: 0, hours: 0, cookies: 
             "LastRedeemedWeekly": data["LastRedeemedWeekly"],
             "LastRedeemedMonthly": data["LastRedeemedMonthly"]
         }
-        with open("profiles/" + str(ctx.author.id) + ".json", "w") as file:
+        with open("profiles/" + str(ctx.author.id) + ".json", "w") as f:
             json.dump(profile, file, indent=4)
     gainEmbed = discord.Embed(title=ctx.author.name + " you gained:",
                          description="Time: " + str(time) + "\nSeconds: " + str(seconds) + "\nMinutes: " + str(minutes) + "\nHours: " + str(hours) + "\nCookies: " + str(cookies),
@@ -104,11 +104,11 @@ async def daily(ctx):
                 "LastRedeemedWeekly": data["LastRedeemedWeekly"],
                 "LastRedeemedMonthly": data["LastRedeemedMonthly"]
             }
-            with open("profiles/" + str(ctx.author.id) + ".json", "w") as file:
+            with open("profiles/" + str(ctx.author.id) + ".json", "w") as f:
                 json.dump(profile, file, indent=4)
-        await ctx.send("come back tomorrow")
+        await ctx.send("Come back tomorrow!")
     else:
-        await ctx.send("you cant do that yet")
+        await ctx.send("You cant do that yet!")
 
 
 @bot.command()
@@ -140,10 +140,10 @@ async def weekly(ctx):
                 "LastRedeemedWeekly": int(time.time()),
                 "LastRedeemedMonthly": data["LastRedeemedMonthly"]
             }
-            with open("profiles/" + str(ctx.author.id) + ".json", "w") as file:
+            with open("profiles/" + str(ctx.author.id) + ".json", "w") as f:
                 json.dump(profile, file, indent=4)
-        await ctx.send("come back next week")
+        await ctx.send("Come back next week!")
     else:
-        await ctx.send("you cant do that yet")
+        await ctx.send("You cant do that Yet")
 
 bot.run('NjU3MTQxNjAwMTgyNDY4NjA4.XgXGxA.SqPpTv93g8nI7nHa-qdrCo81DUE')
